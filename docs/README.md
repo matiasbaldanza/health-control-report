@@ -21,3 +21,5 @@ This directory is the source of truth for product behavior, architecture, assump
 - ADRs preserve why important choices were made.
 - Assumptions are hypotheses; each should state how it can be disproved.
 - Roadmap tracks sequencing, not architectural truth.
+
+- [`m0-historical-report-generator.md`](m0-historical-report-generator.md) — immediate CSV-to-print vertical slice.

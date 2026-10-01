@@ -1,3 +1,8 @@
+
+## M0 — Historical report generator (current priority)
+
+Generate the immediately needed June–August 2026 printable reports directly from mySugr CSV. See [`m0-historical-report-generator.md`](m0-historical-report-generator.md). This milestone precedes the interactive import UI and is intended to validate the parsing, classification, event and print assumptions against real historical data.
+
 # Roadmap
 
 ## M0 — Repository and decision baseline

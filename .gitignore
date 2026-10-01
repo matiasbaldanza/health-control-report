@@ -10,3 +10,6 @@ private-data/
 *.private.csv
 *.private.pdf
 *.private.xlsx
+
+# Generated reports (may contain health data)
+reports/

@@ -29,3 +29,8 @@ M0 — repository/decision baseline complete; ready to begin M1 import and persi
 
 ## Next concrete task
 Implement M1: mySugr CSV parsing, normalization, import summary, IndexedDB persistence, and dedup/conflict tests.
+
+
+## Immediate implementation priority
+
+M0 historical report generator is now the current vertical slice. Validate June–August printable output before expanding the interactive application. See `docs/m0-historical-report-generator.md`.

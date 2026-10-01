@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.DS_Store
+.env
+.env.*
+coverage/
+
+# Never commit identifiable patient exports or local verification data.
+private-data/
+*.private.csv
+*.private.pdf
+*.private.xlsx

@@ -12,6 +12,7 @@ M0 — repository/decision baseline complete; ready to begin M1 import and persi
 - imported source data is immutable; classifications are derived
 - event detection is heuristic and must be human-confirmed
 - M0 separates neutral threshold notices (`<100` / `>200` mg/dL) from conservative recheck candidates using a 120-minute follow-up window
+- Daily slot collisions are resolved after event detection using derived `confirmed`, `inferred`, and `ambiguous` assignment states
 - browser print CSS is the first PDF/print strategy
 
 ## What is intentionally still open

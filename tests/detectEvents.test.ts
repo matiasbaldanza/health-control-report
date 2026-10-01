@@ -107,4 +107,14 @@ describe("detectEvents", () => {
 
     expect(events).toEqual([]);
   });
+
+  it("does not treat a late snack and early dinner as an event without a notice trigger", () => {
+    const events = detectEvents([
+      reading("morning", "2026-09-10", "09:22:24", 132),
+      reading("snack", "2026-09-10", "18:13:20", 126),
+      reading("dinner", "2026-09-10", "19:42:12", 156),
+    ]);
+
+    expect(events).toEqual([]);
+  });
 });

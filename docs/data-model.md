@@ -28,13 +28,16 @@ interface ImportedGlucoseMeasurement {
 type RoutineSlot = "fasting" | "lunch" | "afternoon_snack" | "dinner";
 
 type MeasurementRole = "routine" | "event_followup" | "unclassified";
+type ClassificationStatus = "confirmed" | "inferred" | "ambiguous";
 
 interface MeasurementClassification {
   measurementId: string;
   role: MeasurementRole;
   slot?: RoutineSlot;
   assignmentSource: "time-inferred" | "manual";
+  status: ClassificationStatus;
   confidence?: number; // heuristic ranking, not clinical confidence
+  alternatives?: Array<{ slot: RoutineSlot; confidence: number }>;
   updatedAt: string;
 }
 ```

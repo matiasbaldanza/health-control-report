@@ -1,5 +1,11 @@
 export type RoutineSlot = "fasting" | "lunch" | "afternoon_snack" | "dinner";
 export type MeasurementRole = "routine" | "event_followup" | "unclassified";
+export type ClassificationStatus = "confirmed" | "inferred" | "ambiguous";
+
+export interface SlotAlternative {
+  slot: RoutineSlot;
+  confidence: number;
+}
 
 export interface ImportedGlucoseMeasurement {
   id: string;
@@ -24,7 +30,9 @@ export interface MeasurementClassification {
   role: MeasurementRole;
   slot?: RoutineSlot;
   assignmentSource: "time-inferred" | "manual";
+  status: ClassificationStatus;
   confidence?: number;
+  alternatives?: SlotAlternative[];
   updatedAt: string;
 }
 

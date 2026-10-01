@@ -29,6 +29,7 @@ Open the HTML in a browser and use Print → Save as PDF. Print in portrait orie
 - Adds a subtle “valor señalado” indicator to routine values below 100 or above 200 mg/dL.
 - Produces one A4-portrait page per month with generous margins and larger, high-contrast values for readability.
 - Shows event rechecks compactly in parentheses after the trigger cell while retaining the full sequence in the event section.
+- Resolves non-event same-slot collisions after event detection; contextual moves to an adjacent empty slot are marked `*` for review.
 - Adds a configurable small gap between calendar weeks (`--week-gap-mm`, default 1.5 mm; use 0 to disable).
 - Shows compact Spanish weekday initials beside day numbers when week gaps are enabled (`L M M J V S D`).
 - Shows count, mean, min/max, and range counts.

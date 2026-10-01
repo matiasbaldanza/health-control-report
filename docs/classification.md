@@ -11,7 +11,8 @@ Spanish labels:
 - Antes de la cena
 
 ## Core rule
-Use local clock time, not “first/second/third/fourth reading of day”.
+Use local clock time as the first-pass candidate, not “first/second/third/fourth
+reading of day”. Then resolve same-day slot collisions using daily context.
 
 This is necessary because:
 - some days contain only 1–3 routine measurements;
@@ -37,16 +38,46 @@ After enough historical routine data exists, calculate robust patient-specific a
 
 This adaptive behavior is post-MVP unless the first implementation remains simple and well-tested.
 
+## Classification pipeline
+
+Run the stages in this order:
+
+1. detect abnormal-value notices;
+2. detect recheck/event sequences;
+3. remove event follow-ups from routine-slot assignment;
+4. assign remaining readings by local time;
+5. resolve daily slot collisions using chronology and adjacent empty slots;
+6. apply manual overrides without changing imported data.
+
+The resolver uses three derived assignment states:
+
+- `confirmed`: time and context support the slot directly;
+- `inferred`: daily context supports an adjacent slot, but the assignment is
+  still a heuristic;
+- `ambiguous`: the available evidence is insufficient to choose safely.
+
+When two non-event readings collide in one slot, the resolver may move the
+later reading to the next adjacent slot only when that slot is empty, the later
+reading is within the configured 120-minute contextual boundary window, and
+the chronology is compatible with the expected breakfast → lunch → merienda →
+dinner sequence. The report marks that reading with `*` and explains it as
+“horario inferido por contexto diario”. Unresolved collisions remain in their
+time-derived slot with a `?` review marker rather than being silently rewritten.
+
 ## Multiple candidates in one slot/day
 Do not discard data.
 
-If two or more readings fall in the same slot window:
-1. If an event candidate explains the extras, keep the selected routine reading in the slot and classify the others as follow-ups after confirmation.
-2. Otherwise mark the slot/day ambiguous for review.
-3. Never silently choose by highest/lowest value.
+If event detection explains the extras, exclude event follow-ups before
+collision resolution. Never redistribute an event follow-up into another meal
+slot.
+
+Otherwise use the contextual resolver above. Never silently choose by
+highest/lowest glucose value.
 
 ## Tags
-Tags may be shown as context. A `Fasting`, `Before meal`, or `After meal` tag can raise/lower heuristic confidence but cannot override time automatically in v1.
+Tags may contribute weak supporting evidence but cannot override time or daily
+context automatically. `Fasting` is strong evidence for the fasting slot;
+generic `Before meal` does not distinguish lunch, merienda, and dinner.
 
 ## Manual override
 A manual override changes only derived classification. It never changes imported timestamp, glucose value, source tags, or raw row.

@@ -11,3 +11,4 @@ ADRs are append-only historical records. Do not rewrite an accepted ADR to match
 | [0005](0005-human-confirmed-events.md) | Event detection is heuristic and human-confirmed | Accepted |
 | [0006](0006-browser-print-first.md) | Browser print CSS before PDF library | Accepted for v1 |
 | [0007](0007-conservative-recheck-event-detection.md) | Separate threshold notices from conservative recheck events | Accepted for M0 |
+| [0008](0008-contextual-daily-slot-resolution.md) | Resolve routine-slot collisions with daily context | Accepted for M0 |

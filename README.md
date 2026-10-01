@@ -38,3 +38,13 @@ node scripts/generate-historical-reports.mjs /path/to/mySugr.csv --months 2026-0
 ```
 
 Open the generated HTML in a browser and print/save it as PDF in portrait orientation. See `docs/m0-historical-report-generator.md`.
+
+### Current June–September 2026 report
+
+```bash
+node scripts/generate-historical-reports.mjs \
+  private-data/mySugr_Export_2026-10-01-08-50.csv \
+  --months 2026-06,2026-07,2026-08,2026-09 \
+  --out reports/june-july-august-september-2026.html \
+  --week-gap-mm 4
+```

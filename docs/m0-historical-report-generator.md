@@ -25,9 +25,10 @@ Open the HTML in a browser and use Print → Save as PDF. Print in landscape ori
   - 20:30–23:59: cena
   - 00:00–05:59: extra/unclassified
 - Preserves every measurement. Measurements close in time are never deduplicated.
+- Adds a subtle “valor señalado” indicator to routine values below 100 or above 200 mg/dL.
 - Produces one A4-landscape page per month.
 - Shows count, mean, min/max, and range counts.
-- Flags candidate event/recheck clusters for human review.
+- Flags only abnormal-trigger/recheck sequences with successive gaps of at most 120 minutes for human review.
 
 ## Important limitation
 Event detection is intentionally heuristic. A detected event is a review aid, not a clinical conclusion. It must not invent treatment, cause, diagnosis, or interpretation.
@@ -40,6 +41,8 @@ Event detection is intentionally heuristic. A detected event is a review aid, no
 5. Source tags do not determine routine slots.
 6. The generator never edits the source CSV.
 7. Generated output contains no clinical treatment recommendations.
+8. Routine measurements in separate meal slots do not become events merely because they occur on the same day.
+9. A threshold notice without a rapid subsequent recheck remains in its routine slot and is not listed as an event.
 
 ## Next iteration
 Compare the generated June–August sheets against the source data by hand, identify incorrect routine/event assignments, then move the proven parsing/classification/reporting rules into the typed domain modules used by the interactive app.

@@ -11,12 +11,13 @@ M0 — repository/decision baseline complete; ready to begin M1 import and persi
 - exact timestamp identifies glucose measurements when no stable source ID exists
 - imported source data is immutable; classifications are derived
 - event detection is heuristic and must be human-confirmed
+- M0 separates neutral threshold notices (`<100` / `>200` mg/dL) from conservative recheck candidates using a 120-minute follow-up window
 - browser print CSS is the first PDF/print strategy
 
 ## What is intentionally still open
 - exact production dependency versions and lockfile
 - final default slot windows/anchors
-- event detector thresholds beyond seed values
+- historical precision/recall of the conservative event heuristic
 - whether report preview blocks printing on unresolved ambiguity or merely warns
 - whether adaptive patient-specific anchors belong in MVP or post-MVP
 - physical A4 orientation after print testing

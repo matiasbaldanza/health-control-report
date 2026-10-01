@@ -10,3 +10,4 @@ ADRs are append-only historical records. Do not rewrite an accepted ADR to match
 | [0004](0004-derived-classification.md) | Classification is derived and source data is immutable | Accepted |
 | [0005](0005-human-confirmed-events.md) | Event detection is heuristic and human-confirmed | Accepted |
 | [0006](0006-browser-print-first.md) | Browser print CSS before PDF library | Accepted for v1 |
+| [0007](0007-conservative-recheck-event-detection.md) | Separate threshold notices from conservative recheck events | Accepted for M0 |

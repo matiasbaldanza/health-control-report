@@ -39,7 +39,7 @@ For each release affecting reporting:
 4. Extra same-window readings -> ambiguity/event logic; never discard.
 
 ## Critical event tests
-Use a synthetic sequence modeled on a real recheck pattern but with non-identifying dates/values.
+Use synthetic sequences modeled on recheck patterns but with non-identifying dates/values.
 
 Example fixture:
 
@@ -57,6 +57,14 @@ Expected:
 - 10:00 is a later routine fasting candidate, not automatically part of the event;
 - all six readings remain distinct;
 - event requires user confirmation.
+
+The M0 regression suite also covers:
+- four routine readings in one day -> no event;
+- high/low notices in routine slots -> visual flags, no event;
+- high and low triggers with rapid rechecks -> one candidate each;
+- cross-midnight grouping -> one candidate;
+- the next routine morning reading -> excluded from the candidate;
+- abnormal values separated by normal meal cadence -> no event.
 
 ## Private-data verification
 When validating against a user's real export, keep it outside version control. Record only aggregate expected results in a local ignored file if needed.

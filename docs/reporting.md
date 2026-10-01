@@ -6,7 +6,7 @@ Produce a compact Spanish report optimized for printing and clinician review, no
 ## Pagination
 Default: one A4 page per calendar month.
 
-Prefer landscape if it improves legibility of five columns plus value/time pairs. Validate on A4 paper and browser PDF output.
+The M0 historical generator uses portrait A4 with generous margins and larger values so the report remains readable on paper. Validate the final layout on A4 paper and browser PDF output.
 
 ## Main table
 Recommended structure: weekly blocks, mirroring the user's existing handwritten form because it scans well and leaves room for annotations.

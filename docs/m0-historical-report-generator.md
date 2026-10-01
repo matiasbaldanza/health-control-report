@@ -10,10 +10,11 @@ This is the first vertical slice of the real product, not a separate throwaway p
 ```bash
 node scripts/generate-historical-reports.mjs /path/to/mySugr.csv \
   --months 2026-06,2026-07,2026-08 \
-  --out reports/june-july-august-2026.html
+  --out reports/june-july-august-2026.html \
+  --week-gap-mm 1.5
 ```
 
-Open the HTML in a browser and use Print → Save as PDF. Print in landscape orientation, 100% scale, with browser headers/footers disabled.
+Open the HTML in a browser and use Print → Save as PDF. Print in portrait orientation, 100% scale, with browser headers/footers disabled.
 
 ## Current behavior
 - Reads the original mySugr CSV without modifying it.
@@ -26,7 +27,10 @@ Open the HTML in a browser and use Print → Save as PDF. Print in landscape ori
   - 00:00–05:59: extra/unclassified
 - Preserves every measurement. Measurements close in time are never deduplicated.
 - Adds a subtle “valor señalado” indicator to routine values below 100 or above 200 mg/dL.
-- Produces one A4-landscape page per month.
+- Produces one A4-portrait page per month with generous margins and larger, high-contrast values for readability.
+- Shows event rechecks compactly in parentheses after the trigger cell while retaining the full sequence in the event section.
+- Adds a configurable small gap between calendar weeks (`--week-gap-mm`, default 1.5 mm; use 0 to disable).
+- Shows compact Spanish weekday initials beside day numbers when week gaps are enabled (`L M M J V S D`).
 - Shows count, mean, min/max, and range counts.
 - Flags only abnormal-trigger/recheck sequences with successive gaps of at most 120 minutes for human review.
 

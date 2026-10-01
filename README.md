@@ -34,7 +34,7 @@ Do not commit real mySugr or Omron exports. Keep patient data local to the brows
 With Node 22 installed, no npm install is required for the historical generator:
 
 ```bash
-node scripts/generate-historical-reports.mjs /path/to/mySugr.csv --months 2026-06,2026-07,2026-08 --out reports/june-july-august-2026.html
+node scripts/generate-historical-reports.mjs /path/to/mySugr.csv --months 2026-06,2026-07,2026-08 --out reports/june-july-august-2026.html --week-gap-mm 1.5
 ```
 
-Open the generated HTML in a browser and print/save it as PDF in landscape orientation. See `docs/m0-historical-report-generator.md`.
+Open the generated HTML in a browser and print/save it as PDF in portrait orientation. See `docs/m0-historical-report-generator.md`.
